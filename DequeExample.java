@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class DequeExample {
     
     
@@ -63,13 +65,13 @@ public class DequeExample {
     public Node remove(){
 
         Node current = head;
-        int index = 0;
-        System.out.println("Size: " + size);
+        
+        
         for(int i =0; i<size-2;i++){
             current = current.next;
 
         }
-        System.out.println("Calling remove " + current.data);
+       
         Node returnNode = current.next;
         current.next = null;
         return returnNode;
@@ -83,7 +85,8 @@ public class DequeExample {
         //Some kinda system out statement System.out.println()
         Node currentNode =  head;
         while(currentNode != null){
-            System.out.println(currentNode.data);
+            System.out.print(currentNode.data);
+            
             currentNode = currentNode.next;
 
         }
@@ -94,25 +97,67 @@ public class DequeExample {
         //Instantiating an object of the DequeExample class
         DequeExample deque = new DequeExample();
         //Calling the method InstertAtTheFront and passing a value
-        deque.push(7);
-        deque.push(8);
+        // deque.push(7);
+        // deque.push(8);
 
-        deque.push(9);
-        deque.add(1);
+        // deque.push(9);
+        // deque.add(1);
         
-        deque.DisplayTheList();
-        deque.pop();
-        System.out.println();
-        System.out.println();
-        deque.DisplayTheList();
-        System.out.println();
-        System.out.println();
-        deque.remove();
-        deque.DisplayTheList();
+        // deque.DisplayTheList();
+        // deque.pop();
+        // System.out.println();
+        // System.out.println();
+        // deque.DisplayTheList();
+        // System.out.println();
+        // System.out.println();
+        // deque.remove();
+        // deque.DisplayTheList();
+            Scanner myObj = new Scanner(System.in);
+            Scanner myInt = new Scanner(System.in);
+            System.out.println();
+            System.out.println("Pick one of the options from below: \nA to add at the end, PU to push at the front, PO Pop to remove from front, R to remove from the end, Q to quit");
+            String yesNo = myObj.nextLine();
+        do{
+            if(yesNo.equals("A")){
+                System.out.println("What would you like to add?");
+                int data = myInt.nextInt();
+                deque.add(data);
+                deque.DisplayTheList();
+                System.out.println();
+                System.out.println("Pick one of the options from below: \nA to add at the end, PU to push at the front, PO Pop to remove from front, R to remove from the end, Q to quit");
+                yesNo = myObj.nextLine();
+                }
+             if(yesNo.equals("PU")){
+                System.out.println("What would you like to push?");
+                int data = myInt.nextInt();
+                deque.push(data);
+                deque.DisplayTheList();
+                System.out.println();
+                System.out.println("Pick one of the options from below: \nA to add at the end, PU to push at the front, PO Pop to remove from front, R to remove from the end, Q to quit");
+                yesNo = myObj.nextLine();
+                }
+            if(yesNo.equals("PO")){
+                    deque.pop();
+                    deque.DisplayTheList();
+                    System.out.println();
+                    System.out.println("Pick one of the options from below: \nA to add at the end, PU to push at the front, PO Pop to remove from front, R to remove from the end, Q to quit");
+                    yesNo = myObj.nextLine();
+                    }
+            if(yesNo.equals("R")){
+                        deque.remove();
+                        deque.DisplayTheList();
+                        System.out.println();
+                        System.out.println("Pick one of the options from below: \nA to add at the end, PU to push at the front, PO Pop to remove from front, R to remove from the end, Q to quit");
+                        yesNo = myObj.nextLine();
+                        }
+            
+    
+    
+        }while (!yesNo.equals("Q"));
         
     }
 
-
+    
     
    
 
